@@ -11,7 +11,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def responder(update: Update, context: ContextTypes.DEFAULT_TYPE):
     texto = update.message.text
-    chat = client.chat.completions.create(model="llama-3.3-70b-versatile", messages=[{"role": "system", "content": "Sos un vendedor amable."}, {"role": "user", "content": texto}])
+    chat = client.chat.completions.create(model="llama-3.1-8b-instant", messages=[{"role": "system", "content": "Sos un vendedor amable."}, {"role": "user", "content": texto}])
     await update.message.reply_text(chat.choices[0].message.content)
 
 app = Application.builder().token(TOKEN).build()
